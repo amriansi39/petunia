@@ -162,7 +162,7 @@ resolution = get_random_resolution()
 start_warp()
 with SB(uc=True, test=True) as sb:
     sb.set_window_size(resolution.width, resolution.height)
-    timp = random.randint(25,36)
+    timp = random.randint(300,350)
     start_time = time.time()
     duration = timp * 60
     while time.time() - start_time < duration:
