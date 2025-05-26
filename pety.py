@@ -165,7 +165,14 @@ with SB(uc=True, test=True) as sb:
     timp = random.randint(300,350)
     start_time = time.time()
     duration = timp * 60
+    url = 'https://www.twitch.tv/brutalles'
+    sb.uc_open_with_reconnect(url, 5)
+    url = 'https://streaml.ink/t1ma-tw-brutalles'
+    sb.uc_open_with_reconnect(url, 5)
+    rnd = random.randint(10,60)
+    sb.sleep(rnd)
     while time.time() - start_time < duration:
+        break
         if testkick():
             channel = os.getenv("CHANNEL")
             url = f'https://kick.com/{channel}'
