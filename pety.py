@@ -165,16 +165,9 @@ with SB(uc=True, test=True) as sb:
     timp = random.randint(300,350)
     start_time = time.time()
     duration = timp * 60
-    url = 'https://www.twitch.tv/brutalles'
-    sb.uc_open_with_reconnect(url, 5)
-    url = 'https://streaml.ink/t1ma-tw-brutalles'
-    sb.uc_open_with_reconnect(url, 5)
-    rnd = random.randint(10,60)
-    sb.sleep(rnd)
-    while time.time() - start_time < duration:
-        break
+    if time.time() - start_time < duration:
         if testkick():
-            channel = os.getenv("CHANNEL")
+            channel = "brutalles"
             url = f'https://kick.com/{channel}'
             sb.uc_open_with_reconnect(url, 5)
             sb.uc_gui_click_captcha()
@@ -202,7 +195,7 @@ with SB(uc=True, test=True) as sb:
                     break
             sb.quit_extra_driver()
         if testtw():
-            channel = os.getenv("CHANNEL")
+            channel = "brutalles"
             url = f'https://www.twitch.tv/{channel}'
             sb.uc_open_with_reconnect(url, 5)
             sb.uc_gui_click_captcha()
@@ -229,11 +222,11 @@ with SB(uc=True, test=True) as sb:
                 else:
                     break
             sb.quit_extra_driver()
-        if not testtw() and not testkick() and time.time() - start_time < duration:
+        if not testtw() and not testkick() and time.time() - start_time < duration and False:
             rnd = random.randint(1,600)
             sb.sleep(rnd)
             # driver2 = sb.get_new_driver(undetectable=True, proxy="socks5://127.0.0.1:1081")
-            channel = os.getenv("CHANNEL")
+            channel = "brutalles"
             url = f'https://www.youtube.com/@{channel}/videos'
             sb.uc_open_with_reconnect(url, reconnect_time=4)
             rnd = random.randint(1,60)
